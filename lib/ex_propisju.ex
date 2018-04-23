@@ -25,7 +25,6 @@ defmodule ExPropisju do
       700 => "семьсот",
       800 => "восемьсот",
       900 => "девятьсот",
-
       10 => "десять",
       11 => "одиннадцать",
       12 => "двенадцать",
@@ -66,9 +65,10 @@ defmodule ExPropisju do
       # а дробную часть евро называют евроцентом
       :eur_fraction => ["цент", "цента", "центов"],
       :usd_integral => ["доллар", "доллара", "долларов"],
-      :usd_fraction => ['цент', 'цента', 'центов'],
+      :usd_fraction => ['цент', 'цента', 'центов']
     },
-    "ru_in" => %{ # Предложный падеж, например в 2 городах
+    # Предложный падеж, например в 2 городах
+    "ru_in" => %{
       0 => "",
       "0" => "нуле",
       :thousands => ["тысяче", "тысячах", "тысячах"],
@@ -83,7 +83,6 @@ defmodule ExPropisju do
       700 => "семистах",
       800 => "восьмистах",
       900 => "девятистах",
-
       10 => "десяти",
       11 => "одиннадцати",
       12 => "двенадцати",
@@ -103,8 +102,8 @@ defmodule ExPropisju do
       80 => "восьмидесяти",
       90 => "девяноста",
       # единицы, местами - c учетом рода
-      1 => %{ 1 => "одном", 2 => "одной", 3 => "одном" },
-      2 => %{ 1 => "двух", 2 => "двух", 3 => "двух" },
+      1 => %{1 => "одном", 2 => "одной", 3 => "одном"},
+      2 => %{1 => "двух", 2 => "двух", 3 => "двух"},
       3 => "трёх",
       4 => "четырёх",
       5 => "пяти",
@@ -124,63 +123,63 @@ defmodule ExPropisju do
       # а дробную часть евро называют евроцентом
       :eur_fraction => ~w[центе центах центах],
       :usd_integral => ~w[долларе долларах долларах],
-      :usd_fraction => ~w[центе центах центах],
+      :usd_fraction => ~w[центе центах центах]
     },
-    "ru_gen" => %{ # Родительный падеж, например в течение одного рабочего дня, пяти ночей (нуля рабочих дней)
-       0 => '',
-       '0' => 'нуля',
-       :thousands => ~w[тысячи тысяч тысяч],
-       :millions => ~w[миллиона миллионов миллионов],
-       :billions => ~w[миллиарда миллиардов миллиардов],
-       100 => 'ста',
-       200 => 'двухсот',
-       300 => 'трёхсот',
-       400 => 'четырёхсот',
-       500 => 'пятисот',
-       600 => 'шестисот',
-       700 => 'семисот',
-       800 => 'восьмисот',
-       900 => 'девятисот',
-
-       10 => 'десяти',
-       11 => 'одиннадцати',
-       12 => 'двенадцати',
-       13 => 'тринадцати',
-       14 => 'четырнадцати',
-       15 => 'пятнадцати',
-       16 => 'шестнадцати',
-       17 => 'семнадцати',
-       18 => 'восемнадцати',
-       19 => 'девятнадцати',
-       20 => 'двадцати',
-       30 => 'тридцати',
-       40 => 'сорока',
-       50 => 'пятидесяти',
-       60 => 'шестидесяти',
-       70 => 'семидесяти',
-       80 => 'восьмидесяти',
-       90 => 'девяноста',
-       # единицы, местами - c учетом рода
-       1 => %{ 1 => "одного", 2 => "одной", 3 => "одного" },
-       2 => %{ 1 => "двух", 2 => "двух", 3 => "двух" },
-       3 => "трёх",
-       4 => "четырёх",
-       5 => "пяти",
-       6 => "шести",
-       7 => "семи",
-       8 => "восьми",
-       9 => "девяти",
-       :rub_integral => ~w[рубля рублей рублей],
-       :rub_fraction => ~w[копейки копеек копеек],
-       :uah_integral => ~w[гривны гривен гривен],
-       :uah_fraction => ~w[копейки копеек копеек],
-       :kzt_integral => ~w[тенге тенге тенге],
-       :kzt_fraction => ~w[тиына тиынов тиынов],
-       :eur_integral => ~w[евро евро евро],
-       # TODO: решить как же всё-таки звать дробную часть евро: "цент" или "евроцент"
-       :eur_fraction => ~w[цента центов центов],
-       :usd_integral => ~w[доллара долларов долларов],
-       :usd_fraction => ~w[цента центов центов],
+    # Родительный падеж, например в течение одного рабочего дня, пяти ночей (нуля рабочих дней)
+    "ru_gen" => %{
+      0 => '',
+      '0' => 'нуля',
+      :thousands => ~w[тысячи тысяч тысяч],
+      :millions => ~w[миллиона миллионов миллионов],
+      :billions => ~w[миллиарда миллиардов миллиардов],
+      100 => 'ста',
+      200 => 'двухсот',
+      300 => 'трёхсот',
+      400 => 'четырёхсот',
+      500 => 'пятисот',
+      600 => 'шестисот',
+      700 => 'семисот',
+      800 => 'восьмисот',
+      900 => 'девятисот',
+      10 => 'десяти',
+      11 => 'одиннадцати',
+      12 => 'двенадцати',
+      13 => 'тринадцати',
+      14 => 'четырнадцати',
+      15 => 'пятнадцати',
+      16 => 'шестнадцати',
+      17 => 'семнадцати',
+      18 => 'восемнадцати',
+      19 => 'девятнадцати',
+      20 => 'двадцати',
+      30 => 'тридцати',
+      40 => 'сорока',
+      50 => 'пятидесяти',
+      60 => 'шестидесяти',
+      70 => 'семидесяти',
+      80 => 'восьмидесяти',
+      90 => 'девяноста',
+      # единицы, местами - c учетом рода
+      1 => %{1 => "одного", 2 => "одной", 3 => "одного"},
+      2 => %{1 => "двух", 2 => "двух", 3 => "двух"},
+      3 => "трёх",
+      4 => "четырёх",
+      5 => "пяти",
+      6 => "шести",
+      7 => "семи",
+      8 => "восьми",
+      9 => "девяти",
+      :rub_integral => ~w[рубля рублей рублей],
+      :rub_fraction => ~w[копейки копеек копеек],
+      :uah_integral => ~w[гривны гривен гривен],
+      :uah_fraction => ~w[копейки копеек копеек],
+      :kzt_integral => ~w[тенге тенге тенге],
+      :kzt_fraction => ~w[тиына тиынов тиынов],
+      :eur_integral => ~w[евро евро евро],
+      # TODO: решить как же всё-таки звать дробную часть евро: "цент" или "евроцент"
+      :eur_fraction => ~w[цента центов центов],
+      :usd_integral => ~w[доллара долларов долларов],
+      :usd_fraction => ~w[цента центов центов]
     },
     "ru_from" => %{
       0 => "",
@@ -197,7 +196,6 @@ defmodule ExPropisju do
       700 => "семьюстами",
       800 => "восьмьюстами",
       900 => "девятьюстами",
-
       10 => "десятью",
       11 => "одиннадцатью",
       12 => "двенадцатью",
@@ -238,7 +236,7 @@ defmodule ExPropisju do
       # а дробную часть евро называют евроцентом
       :eur_fraction => ["центом", "центами", "центами"],
       :usd_integral => ["долларом", "долларами", "долларами"],
-      :usd_fraction => ["центом", "центами", "центами"],
+      :usd_fraction => ["центом", "центами", "центами"]
     },
     "ua" => %{
       0 => "",
@@ -255,7 +253,6 @@ defmodule ExPropisju do
       700 => "сімсот",
       800 => "вісімсот",
       900 => "дев'ятсот",
-
       10 => "десять",
       11 => "одинадцять",
       12 => "дванадцять",
@@ -293,7 +290,7 @@ defmodule ExPropisju do
       :eur_integral => ["євро", "євро", "євро"],
       :eur_fraction => ["євроцент", "євроцента", "євроцентів"],
       :usd_integral => ["долар", "долара", "доларів"],
-      :usd_fraction => ["цент", "цента", "центів"],
+      :usd_fraction => ["цент", "цента", "центів"]
     }
   }
 
@@ -302,19 +299,39 @@ defmodule ExPropisju do
     :usd => 1,
     :uah => 2,
     :eur => 1,
-    :kzt => 1,
+    :kzt => 1
   }
-
 
   def translations, do: @translations
   def money_genders, do: @money_genders
 
+  def rublej_with_kopeek(amount) when is_float(amount) do
+    [rub, kop] =
+      amount
+      |> Float.to_string()
+      |> String.split(".")
+
+    "#{rublej(String.to_integer(rub))} #{kopeek(String.to_integer(kop))}"
+  end
+
+  def rublej_with_kopeek(amount) when is_integer(amount) do
+    rublej(amount)
+  end
+
   def rublej(amount, locale \\ :ru, options \\ %{}) do
     integrals_key = :rub_integral
     fractions_key = :rub_fraction
-    money_gender = ExPropisju.money_genders[:rub]
+    money_gender = ExPropisju.money_genders()[:rub]
 
     money(amount, locale, integrals_key, fractions_key, money_gender, true, false, options)
+  end
+
+  def kopeek(amount, locale \\ :ru, options \\ %{}) do
+    integrals_key = :rub_fraction
+    fractions_key = :rub_fraction
+    money_gender = ExPropisju.money_genders()[:rub]
+
+    money(sanitize_kop(amount), locale, integrals_key, fractions_key, 2, true, false, options)
   end
 
   # Выводит сумму данного существительного прописью и выбирает правильное число и падеж
@@ -322,19 +339,32 @@ defmodule ExPropisju do
   #    RuPropisju.propisju_shtuk(21, 3, "колесо", "колеса", "колес") #=> "двадцать одно колесо"
   #    RuPropisju.propisju_shtuk(21, 1, "мужик", "мужика", "мужиков") #=> "двадцать один мужик"
   def propisju_shtuk(items, gender, forms, locale \\ :ru) do
-    [propisju(items, gender, locale), choose_plural(items, forms)] |> List.flatten |> Enum.join(" ")
+    [propisju(items, gender, locale), choose_plural(items, forms)] |> List.flatten()
+    |> Enum.join(" ")
   end
 
   # Выбирает корректный вариант числительного в зависимости от рода и числа и оформляет сумму прописью
   #
   #   propisju(243, 1) => "двести сорок три"
   #   propisju(221, 2) => "двести двадцать одна"
-  def propisju(amount) do
-    propisju_int(amount, 1, [], :ru) |> List.flatten |> Enum.join(" ")
+
+  def propisju(amount) when is_integer(amount) do
+    propisju_int(amount, 1, [], :ru) |> List.flatten() |> Enum.join(" ")
   end
-  def propisju(amount, gender, locale \\ :ru) do
+
+  # def propisju(amount) when is_float(amount) do
+  #   propisju_float(amount, 1, [], :ru)
+  # end
+
+  def propisju(amount, gender, locale \\ :ru)
+
+  def propisju(amount, gender, locale) when is_integer(amount) do
     propisju_int(amount, gender, [], locale)
   end
+
+  # def propisju(amount, gender, locale) when is_float(amount) do
+  #   propisju_float(amount, gender, [], locale)
+  # end
 
   # Выбирает нужный падеж существительного в зависимости от числа
   #
@@ -342,31 +372,39 @@ defmodule ExPropisju do
   def choose_plural(amount, variants \\ []) do
     mod_ten = rem(amount, 10)
     mod_hundred = rem(amount, 100)
-    variant = if (mod_ten == 1 && mod_hundred != 11) do
+
+    variant =
+      if mod_ten == 1 && mod_hundred != 11 do
         1
-    else
-      if mod_ten >= 2 && mod_ten <= 4 && (mod_hundred <10 || rem(mod_hundred, 100) >=20) do
-        2
       else
-        3
+        if mod_ten >= 2 && mod_ten <= 4 && (mod_hundred < 10 || rem(mod_hundred, 100) >= 20) do
+          2
+        else
+          3
+        end
       end
-    end
-    Enum.at(variants, variant-1)
+
+    Enum.at(variants, variant - 1)
   end
 
-
-	def money(amount, locale, integrals_key, fractions_key, money_gender, fraction_as_number \\ false, integrals_as_number \\ false, options \\ {}) do
-
-    locale_data = pick_locale(ExPropisju.translations, Atom.to_string(locale))
+  def money(
+        amount,
+        locale,
+        integrals_key,
+        fractions_key,
+        money_gender,
+        fraction_as_number \\ false,
+        integrals_as_number \\ false,
+        options \\ {}
+      ) do
+    locale_data = pick_locale(ExPropisju.translations(), Atom.to_string(locale))
     integrals = locale_data[integrals_key]
     fractions = locale_data[fractions_key]
 
     if zero?(amount) do
       zero(locale_data, integrals, fractions, fraction_as_number, integrals_as_number, options)
     else
-      parts = []
-
-      parts = parts ++ propisju_int(amount, money_gender, integrals, locale)
+      parts = propisju_int(amount, money_gender, integrals, locale)
 
       Enum.join(parts, " ")
     end
@@ -383,8 +421,7 @@ defmodule ExPropisju do
   # Примерно так:
   #   propisju(42, 1, ["сволочь", "сволочи", "сволочей"]) # => "сорок две сволочи"
   def propisju_int(amount, gender \\ 1, item_forms \\ [], locale \\ :ru) do
-
-    locale_root = pick_locale(ExPropisju.translations, Atom.to_string(locale))
+    locale_root = pick_locale(ExPropisju.translations(), Atom.to_string(locale))
 
     # # zero!
     if zero?(amount) do
@@ -398,32 +435,31 @@ defmodule ExPropisju do
       [:thousands, 1_000]
     ]
 
-    parts = Enum.map(fractions, fn([name | multiplier]) ->
-      [name, _fraction = div(amount, multiplier |> List.last) |> rem(1000)]
-    end)
+    parts =
+      Enum.map(fractions, fn [name | multiplier] ->
+        [name, _fraction = div(amount, multiplier |> List.last()) |> rem(1000)]
+      end)
 
     # # Единицы обрабатываем отдельно
     ones = rem(amount, 1000)
 
     # Составляем простые тысячные доли
-    parts_in_writing = Enum.reject(parts, fn(part) ->
-        zero?(part |> List.last)
+    parts_in_writing =
+      Enum.reject(parts, fn part ->
+        zero?(part |> List.last())
       end)
-    |> Enum.map(fn([name, fraction]) ->
-        thousandth_gender = if (name == :thousands), do: 2, else: 1
+      |> Enum.map(fn [name, fraction] ->
+        thousandth_gender = if name == :thousands, do: 2, else: 1
         compose_ordinal(fraction, thousandth_gender, locale_root[name], locale)
-    end)
+      end)
 
     # И только единицы обрабатываем с переданными параметрами
-    parts_in_writing ++ [(compose_ordinal(ones, gender, item_forms, locale))]
-
+    parts_in_writing ++ [compose_ordinal(ones, gender, item_forms, locale)]
   end
 
-
-    # Cоставляет число прописью для чисел до тысячи
-    # ExPropisju.compose_ordinal("123", 1, ["рубль", "рубля", "рублей"], :ru)
+  # Cоставляет число прописью для чисел до тысячи
+  # ExPropisju.compose_ordinal("123", 1, ["рубль", "рубля", "рублей"], :ru)
   def compose_ordinal(remaining_amount_or_nil, gender, item_forms \\ [], locale \\ :ru) do
-
     # {remaining_amount, _} = Integer.parse(remaining_amount_or_nil)
     remaining_amount = remaining_amount_or_nil
 
@@ -432,7 +468,7 @@ defmodule ExPropisju do
     # Ноль чего-то
     # return "ноль %s" % item_forms[3] if remaining_amount_or_nil.zero?
 
-    [_rest, _rest1, _chosen_ordinal, _ones, _tens, _hundreds] = Enum.map(1..6, fn(_x) -> nil end)
+    [_rest, _rest1, _chosen_ordinal, _ones, _tens, _hundreds] = Enum.map(1..6, fn _x -> nil end)
 
     rest = rem(remaining_amount, 1000)
     # remaining_amount / 1000
@@ -441,7 +477,7 @@ defmodule ExPropisju do
       Enum.at(item_forms, 2)
     end
 
-    locale_root = pick_locale(ExPropisju.translations, locale)
+    locale_root = pick_locale(ExPropisju.translations(), locale)
 
     # начинаем подсчет с Rest
     # сотни
@@ -458,30 +494,36 @@ defmodule ExPropisju do
 
     # # индекс выбранной формы
     chosen_ordinal = 2
-    if rest1 < 1 || rest1 > 1 do # единицы
+    # единицы
+    if rest1 < 1 || rest1 > 1 do
       value = locale_root[rem(rest, 10)]
       # если попался хэш, делаем выбор согласно рода
       if is_map(value), do: value = value[gender]
 
       case rem(rest, 10) do
         1 ->
-          chosen_ordinal = 0 # индекс формы меняется
+          # индекс формы меняется
+          chosen_ordinal = 0
+
         x when x in 2..4 ->
-          chosen_ordinal = 1 # индекс формы меняется
+          # индекс формы меняется
+          chosen_ordinal = 1
+
         _ ->
           chosen_ordinal
       end
     end
 
-    plural = [
-      hundreds,
-      tens,
-      value || ones,
-      Enum.at(item_forms, chosen_ordinal),
-    ]
-    |> Enum.reject(fn(x) -> x == ""end)
-    |> Enum.join(" ")
-    |> String.strip
+    plural =
+      [
+        hundreds,
+        tens,
+        value || ones,
+        Enum.at(item_forms, chosen_ordinal)
+      ]
+      |> Enum.reject(fn x -> x == "" end)
+      |> Enum.join(" ")
+      |> String.strip()
 
     plural
   end
@@ -492,10 +534,10 @@ defmodule ExPropisju do
   def zero(locale_data, integrals, fractions, fraction_as_number, integrals_as_number, _options) do
     integ = if integrals_as_number, do: "0", else: locale_data['0']
     frac = if fraction_as_number, do: "0", else: locale_data['0']
-    [integ , List.last(integrals), frac, List.last(fractions)]
+
+    [integ, List.last(integrals), frac, List.last(fractions)]
     |> Enum.join(" ")
   end
-
 
   def pick_locale(from_hash, locale) do
     if Map.has_key?(from_hash, locale) do
@@ -505,4 +547,21 @@ defmodule ExPropisju do
     end
   end
 
+  defp sanitize_kop(kop) do
+    kop
+    |> to_string
+    |> String.length()
+    |> case do
+      1 ->
+        "#{kop}0"
+
+      k ->
+        String.to_float("0.#{kop}")
+        |> Float.round(2)
+        |> Kernel.*(100)
+        |> round()
+        |> to_string
+    end
+    |> String.to_integer()
+  end
 end
