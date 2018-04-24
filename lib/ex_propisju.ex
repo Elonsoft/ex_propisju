@@ -311,7 +311,12 @@ defmodule ExPropisju do
       |> Float.to_string()
       |> String.split(".")
 
-    "#{rublej(String.to_integer(rub))} #{kopeek(String.to_integer(kop))}"
+    case {String.to_integer(rub), sanitize_kop(kop)} do
+      {0, 0} -> "#{rublej(0)}"
+      {r, 0} -> "#{rublej(r)}"
+      {0, k} -> "#{kopeek(k)}"
+      {r, k} -> "#{rublej(r)} #{kopeek(k)}"
+    end
   end
 
   def rublej_with_kopeek(amount) when is_integer(amount) do
@@ -331,7 +336,7 @@ defmodule ExPropisju do
     fractions_key = :rub_fraction
     money_gender = ExPropisju.money_genders()[:rub]
 
-    money(sanitize_kop(amount), locale, integrals_key, fractions_key, 2, true, false, options)
+    money(amount, locale, integrals_key, fractions_key, 2, true, false, options)
   end
 
   # Выводит сумму данного существительного прописью и выбирает правильное число и падеж
