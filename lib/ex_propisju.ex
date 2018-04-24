@@ -428,11 +428,6 @@ defmodule ExPropisju do
   def propisju_int(amount, gender \\ 1, item_forms \\ [], locale \\ :ru) do
     locale_root = pick_locale(ExPropisju.translations(), Atom.to_string(locale))
 
-    # # zero!
-    if zero?(amount) do
-      [locale_root['0'], item_forms[-1]] |> Enum.join(' ')
-    end
-
     fractions = [
       [:trillions, 1_000_000_000_000],
       [:billions, 1_000_000_000],
@@ -476,11 +471,6 @@ defmodule ExPropisju do
     [_rest, _rest1, _chosen_ordinal, _ones, _tens, _hundreds] = Enum.map(1..6, fn _x -> nil end)
 
     rest = rem(remaining_amount, 1000)
-    # remaining_amount / 1000
-    if zero?(rest) do
-      # последние три знака нулевые
-      Enum.at(item_forms, 2)
-    end
 
     locale_root = pick_locale(ExPropisju.translations(), locale)
 
@@ -540,7 +530,7 @@ defmodule ExPropisju do
     integ = if integrals_as_number, do: "0", else: locale_data['0']
     frac = if fraction_as_number, do: "0", else: locale_data['0']
 
-    [integ, List.last(integrals), frac, List.last(fractions)]
+    [integ, List.last(integrals)]
     |> Enum.join(" ")
   end
 
