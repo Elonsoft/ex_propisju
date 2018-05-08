@@ -308,7 +308,7 @@ defmodule ExPropisju do
   def rublej_with_kopeek(amount) when is_float(amount) do
     [rub, kop] =
       amount
-      |> Float.to_string()
+      |> Float.to_string(decimals: 6)
       |> String.split(".")
 
     case {String.to_integer(rub), sanitize_kop(kop)} do

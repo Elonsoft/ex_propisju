@@ -2,14 +2,16 @@ defmodule ExPropisju.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ex_propisju,
-     version: "0.1.4",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     description: description(),
-     package: package(),
-     deps: deps()]
+    [
+      app: :ex_propisju,
+      version: "0.1.4",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      description: description(),
+      package: package(),
+      deps: deps()
+    ]
   end
 
   defp description do
@@ -20,13 +22,16 @@ defmodule ExPropisju.Mixfile do
 
   defp package do
     [
-     files: ["lib", "mix.exs", "README.md"],
-     maintainers: ["Sergey Chechaev"],
-     licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/sergey-chechaev/ex_propisju",
-              "Docs" => "https://github.com/sergey-chechaev/ex_propisju"}
-     ]
+      files: ["lib", "mix.exs", "README.md"],
+      maintainers: ["Sergey Chechaev"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/sergey-chechaev/ex_propisju",
+        "Docs" => "https://github.com/sergey-chechaev/ex_propisju"
+      }
+    ]
   end
+
   # Configuration for the OTP application
   #
   # Type "mix help compile.app" for more information
