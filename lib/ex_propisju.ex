@@ -487,6 +487,8 @@ defmodule ExPropisju do
     bla = if rest1 == 1, do: rest, else: rest1 * 10
     tens = locale_root[bla]
 
+    value = nil
+
     # # индекс выбранной формы
     chosen_ordinal = 2
     # единицы
