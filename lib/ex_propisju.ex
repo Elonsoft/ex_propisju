@@ -344,7 +344,8 @@ defmodule ExPropisju do
   #    RuPropisju.propisju_shtuk(21, 3, "колесо", "колеса", "колес") #=> "двадцать одно колесо"
   #    RuPropisju.propisju_shtuk(21, 1, "мужик", "мужика", "мужиков") #=> "двадцать один мужик"
   def propisju_shtuk(items, gender, forms, locale \\ :ru) do
-    [propisju(items, gender, locale), choose_plural(items, forms)] |> List.flatten()
+    [propisju(items, gender, locale), choose_plural(items, forms)]
+    |> List.flatten()
     |> Enum.join(" ")
   end
 
@@ -354,7 +355,9 @@ defmodule ExPropisju do
   #   propisju(221, 2) => "двести двадцать одна"
 
   def propisju(amount) when is_integer(amount) do
-    propisju_int(amount, 1, [], :ru) |> List.flatten() |> Enum.join(" ")
+    propisju_int(amount, 1, [], :ru)
+    |> List.flatten()
+    |> Enum.join(" ")
   end
 
   # def propisju(amount) when is_float(amount) do
@@ -487,42 +490,51 @@ defmodule ExPropisju do
     bla = if rest1 == 1, do: rest, else: rest1 * 10
     tens = locale_root[bla]
 
-    value = nil
+    value = locale_root[rem(rest, 10)]
+
+    value =
+      case is_map(value) do
+        # если попался хэш, делаем выбор согласно рода
+        true -> value[gender]
+        false -> value
+      end
 
     # # индекс выбранной формы
-    chosen_ordinal = 2
+    # chosen_ordinal = 2
     # единицы
-    if rest1 < 1 || rest1 > 1 do
-      value = locale_root[rem(rest, 10)]
-      # если попался хэш, делаем выбор согласно рода
-      if is_map(value), do: value = value[gender]
+    chosen_ordinal =
+      case rest1 == 1 do
+        true ->
+          2
 
-      case rem(rest, 10) do
-        1 ->
-          # индекс формы меняется
-          chosen_ordinal = 0
+        false ->
+          case rem(rest, 10) do
+            1 ->
+              # индекс формы меняется
+              0
 
-        x when x in 2..4 ->
-          # индекс формы меняется
-          chosen_ordinal = 1
+            x when x in 2..4 ->
+              # индекс формы меняется
+              1
 
-        _ ->
-          chosen_ordinal
+            _ ->
+              2
+          end
       end
-    end
 
-    plural =
-      [
-        hundreds,
-        tens,
-        value || ones,
-        Enum.at(item_forms, chosen_ordinal)
-      ]
-      |> Enum.reject(fn x -> x == "" end)
-      |> Enum.join(" ")
-      |> String.strip()
+    plural = [
+      hundreds,
+      tens,
+      value || ones,
+      Enum.at(item_forms, chosen_ordinal)
+    ]
 
     plural
+    |> Enum.reject(fn x -> x == "" end)
+    |> Enum.join(" ")
+    |> String.strip()
+
+    # plural
   end
 
   def zero?(0), do: true
