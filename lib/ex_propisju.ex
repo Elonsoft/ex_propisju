@@ -490,13 +490,19 @@ defmodule ExPropisju do
     bla = if rest1 == 1, do: rest, else: rest1 * 10
     tens = locale_root[bla]
 
-    value = locale_root[rem(rest, 10)]
-
     value =
-      case is_map(value) do
-        # если попался хэш, делаем выбор согласно рода
-        true -> value[gender]
-        false -> value
+      case rest1 == 1 do
+        true ->
+          nil
+
+        false ->
+          value = locale_root[rem(rest, 10)]
+
+          case is_map(value) do
+            # если попался хэш, делаем выбор согласно рода
+            true -> value[gender]
+            false -> value
+          end
       end
 
     # # индекс выбранной формы
